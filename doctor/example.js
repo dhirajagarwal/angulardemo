@@ -10,11 +10,13 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     patients: [{
       name: 'Dhiraj Agarwal',
       address: 'Pune',
-      phone: '9970428444'
+      phone: '9970428444',
+      amount: 5000
     }, {
       name: 'Poonam Agarwal',
       address: 'KundanNagar',
-      phone: '9970428444'
+      phone: '9970428444',
+      amount: 5000
     }]
   }, {
     name: 'Dr. Sohoni',
@@ -25,28 +27,33 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     patients: [{
       name: 'Suresh Agarwal',
       address: 'Khadki',
-      phone: '9970428444'
+      phone: '9970428444',
+      amount: 5000
     }, {
       name: 'Usha Agarwal',
       address: 'Vishalnagar',
-      phone: '9970428444'
+      phone: '9970428444',
+      amount: 5000
     }]
   }, ];
 
   $scope.addDoctor = function() {
     $scope.data.push({
       name: $scope.doctorName,
-      address: $scope.doctorAddress,
-      patients : []
+      address: '',
+      patients: [],
+      amount: 0,
+      due: 0
     });
     $scope.doctorName = '';
-    $scope.doctorAddress = '';
   };
 
-  $scope.addPatientData = function(index, patName, patAddress) {
+  $scope.addPatientData = function(index, patName) {
     $scope.data[index].patients.push({
       name: patName,
-      address: patAddress
+      address: '',
+      phone: '',
+      amount: 0
     });
   };
 
@@ -63,9 +70,8 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     },
     link: function(scope) {
       scope.addPatient = function() {
-        scope.$parent.addPatientData(scope.index, scope.namePatient, scope.addressPatient);
+        scope.$parent.addPatientData(scope.index, scope.namePatient);
         scope.namePatient = '';
-        scope.addressPatient = '';
       };
     }
   }
