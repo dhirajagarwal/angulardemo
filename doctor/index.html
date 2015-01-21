@@ -9,18 +9,30 @@
 </head>
 
 <body>
-
   <div ng-controller="AccordionDemoCtrl">
     <accordion id="docs" close-others="oneAtATime">
       <accordion-group ng-repeat="doctor in data">
         <accordion-heading>
-          <div>{{doctor.name}} <span style="padding-left:50px">Address: {{doctor.address}}</span><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-          </div>
+          {{doctor.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </accordion-heading>
+        <div class="panel panel-default" style="margin-bottom:15px">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6">
+                Address: {{doctor.address}}
+                <br>Phone: {{doctor.phone}}
+              </div>
+              <div class="col-xs-6">
+                Total Amount : Rs.{{doctor.amount}}
+                <br>Due: Rs.{{doctor.due}}
+              </div>
+            </div>
+          </div>
+        </div>
         <accordion id="doc{{$index}}" close-others="oneAtATime">
-          
           <accordion-group ng-repeat="patient in doctor.patients" heading="{{patient.name}}">
-            {{patient.address}}
+            Address : {{patient.address}}
+            <br>Phone : {{patient.phone}}
           </accordion-group>
           <br>
           <patientadd index="{{$parent.$index}}"></patientadd>
