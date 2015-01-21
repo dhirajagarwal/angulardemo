@@ -4,29 +4,40 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
   $scope.data = [{
     name: 'Dr. Batra',
     address: 'Karve Nagar',
+    phone: '9970428444',
+    amount: 5000,
+    due: 3000,
     patients: [{
       name: 'Dhiraj Agarwal',
-      address: 'Pune'
+      address: 'Pune',
+      phone: '9970428444'
     }, {
       name: 'Poonam Agarwal',
-      address: 'KundanNagar'
+      address: 'KundanNagar',
+      phone: '9970428444'
     }]
   }, {
     name: 'Dr. Sohoni',
     address: 'Aundh',
+    phone: '9970428444',
+    amount: 6000,
+    due: 2000,
     patients: [{
       name: 'Suresh Agarwal',
-      address: 'Khadki'
+      address: 'Khadki',
+      phone: '9970428444'
     }, {
       name: 'Usha Agarwal',
-      address: 'Vishalnagar'
+      address: 'Vishalnagar',
+      phone: '9970428444'
     }]
   }, ];
 
   $scope.addDoctor = function() {
     $scope.data.push({
       name: $scope.doctorName,
-      address: $scope.doctorAddress
+      address: $scope.doctorAddress,
+      patients : []
     });
     $scope.doctorName = '';
     $scope.doctorAddress = '';
@@ -52,7 +63,7 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     },
     link: function(scope) {
       scope.addPatient = function() {
-        scope.$parent.addPatientData(scope.index,scope.namePatient,scope.addressPatient);
+        scope.$parent.addPatientData(scope.index, scope.namePatient, scope.addressPatient);
         scope.namePatient = '';
         scope.addressPatient = '';
       };
