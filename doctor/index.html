@@ -18,10 +18,12 @@
           </div>
         </accordion-heading>
         <accordion id="doc{{$index}}" close-others="oneAtATime">
-          <patientadd index="{{$index}}"></patientadd>
+          
           <accordion-group ng-repeat="patient in doctor.patients" heading="{{patient.name}}">
             {{patient.address}}
           </accordion-group>
+          <br>
+          <patientadd index="{{$parent.$index}}"></patientadd>
           <br>
         </accordion>
       </accordion-group>
