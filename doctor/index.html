@@ -15,28 +15,26 @@
         <accordion-heading>
           {{doctor.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </accordion-heading>
-        <div class="panel panel-default" style="margin-bottom:15px">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-6">
-                Address: {{doctor.address}}
-                <br>Phone: {{doctor.phone}}
-              </div>
-              <div class="col-xs-6">
-                Total Amount : Rs.{{doctor.amount}}
-                <br>Due: Rs.{{doctor.due}}
-              </div>
+        <div class="well" style="background:grey">
+          <div class="row">
+            <div class="col-xs-6">
+              Address: {{doctor.address}}
+              <br>Phone: {{doctor.phone}}
+            </div>
+            <div class="col-xs-6">
+              Total Amount : Rs.{{doctor.amount}}
+              <br>Due: Rs.{{doctor.due}}
             </div>
           </div>
         </div>
         <accordion id="doc{{$index}}" close-others="oneAtATime">
           <accordion-group ng-repeat="patient in doctor.patients" heading="{{patient.name}}">
             <div class="row">
-              <div class="col-xs-6">
+              <div class="col-xs-5">
                 Address : {{patient.address}}
                 <br>Phone : {{patient.phone}}
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-5">
                 Amount : Rs.{{patient.amount}}
               </div>
             </div>
