@@ -2,36 +2,36 @@
 <html ng-app="ui.bootstrap.demo">
 
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
-    <script src="example.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <script src="example.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <div ng-controller="AccordionDemoCtrl">
-        <accordion id="docs" close-others="oneAtATime">
-            <accordion-group ng-repeat="doctor in data">
-                <accordion-heading>
-                    <div>{{doctor.name}} <span style="padding-left:50px">Address: {{doctor.address}}</span><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                    </div>
-                </accordion-heading>
-                <accordion id="doc{{$index}}" close-others="oneAtATime">
-                    <patientadd patientsArray="{{doctor.patients}}"></patientadd>
-                    <accordion-group ng-repeat="patient in doctor.patients" heading="{{patient.name}}">
-                        {{patient.address}}
-                    </accordion-group>
-                    <br>
-                </accordion>
-            </accordion-group>
+  <div ng-controller="AccordionDemoCtrl">
+    <accordion id="docs" close-others="oneAtATime">
+      <accordion-group ng-repeat="doctor in data">
+        <accordion-heading>
+          <div>{{doctor.name}} <span style="padding-left:50px">Address: {{doctor.address}}</span><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+          </div>
+        </accordion-heading>
+        <accordion id="doc{{$index}}" close-others="oneAtATime">
+          <patientadd index="{{$index}}"></patientadd>
+          <accordion-group ng-repeat="patient in doctor.patients" heading="{{patient.name}}">
+            {{patient.address}}
+          </accordion-group>
+          <br>
         </accordion>
-        <form ng-submit="addDoctor()">
-            <input type="text" ng-model="doctorName" placeholder="Add Doctor's Name">
-            <input type="text" ng-model="doctorAddress" placeholder="Add Doctor's Address">
-            <input class="btn-primary" type="submit" value="Add">
-        </form>
-    </div>
+      </accordion-group>
+    </accordion>
+    <form ng-submit="addDoctor()">
+      <input type="text" ng-model="doctorName" placeholder="Add Doctor's Name">
+      <input type="text" ng-model="doctorAddress" placeholder="Add Doctor's Address">
+      <input class="btn-primary" type="submit" value="Add">
+    </form>
+  </div>
 </body>
 
 </html>
