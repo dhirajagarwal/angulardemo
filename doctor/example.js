@@ -31,16 +31,16 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     $scope.doctorName = '';
     $scope.doctorAddress = '';
   };
-  
-  $scope.addPatientData = function (index,patName,patAddress) {
+
+  $scope.addPatientData = function(index, patName, patAddress) {
     alert(index);
-        alert($scope.patientName);
-        alert($scope.patientAddress);
-        $scope.data[index].patients.push({
-            name: patName,
-            address: patAddress
-        });
-    };
+    alert(patName);
+    alert(patAddress);
+    $scope.data[index].patients.push({
+      name: patName,
+      address: patAddress
+    });
+  };
 
   $scope.status = {
     isFirstOpen: true,
@@ -51,14 +51,13 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     restrict: 'E',
     templateUrl: 'addpatient.html',
     scope: {
-      patientData: '=patientsArray'
+      index: '@'
     },
     link: function(scope) {
-      scope.addPatient = function(index) {
-        alert(index);
+      scope.addPatient = function() {
+        alert(scope.index);
+        alert(scope.namePatient);
         scope.$parent.addPatientData(index,scope.namePatient,scope.addressPatient);
-        scope.namePatient = '';
-        scope.addressPatient = '';
       };
     }
   }
