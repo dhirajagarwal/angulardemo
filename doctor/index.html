@@ -17,13 +17,23 @@
         </accordion-heading>
         <div class="well" style="background:grey">
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-5">
               Address: {{doctor.address}}
               <br>Phone: {{doctor.phone}}
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-4">
               Total Amount : Rs.{{doctor.amount}}
               <br>Due: Rs.{{doctor.due}}
+            </div>
+            <div class="col-xs-3">
+              <div class="btn-toolbar" role="toolbar">
+                <button type="button" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-danger">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -34,8 +44,18 @@
                 Address : {{patient.address}}
                 <br>Phone : {{patient.phone}}
               </div>
-              <div class="col-xs-5">
+              <div class="col-xs-4">
                 Amount : Rs.{{patient.amount}}
+              </div>
+              <div class="col-xs-3">
+                <div class="btn-toolbar" role="toolbar">
+                  <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </button>
+                </div>
               </div>
             </div>
           </accordion-group>
@@ -47,7 +67,9 @@
     </accordion>
     <form ng-submit="addDoctor()">
       <input type="text" ng-model="doctorName" placeholder="Add Doctor's Name">
-      <input class="btn-primary" type="submit" value="Add">
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
     </form>
   </div>
 </body>
