@@ -33,9 +33,6 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
   };
 
   $scope.addPatientData = function(index, patName, patAddress) {
-    alert(index);
-    alert(patName);
-    alert(patAddress);
     $scope.data[index].patients.push({
       name: patName,
       address: patAddress
@@ -55,9 +52,9 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('AccordionDemoC
     },
     link: function(scope) {
       scope.addPatient = function() {
-        alert(scope.index);
-        alert(scope.namePatient);
-        scope.$parent.addPatientData(index,scope.namePatient,scope.addressPatient);
+        scope.$parent.addPatientData(scope.index,scope.namePatient,scope.addressPatient);
+        scope.namePatient = '';
+        scope.addressPatient = '';
       };
     }
   }
